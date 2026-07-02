@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SiteWalk · 规划踏勘记 — 项目展示</title>
+<meta name="description" content="SiteWalk 是一款面向城乡规划学生的实地踏勘协作工具。从竞品分析到全栈开发，这是一份完整的产品案例研究。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F8FA;
+  --paper:#FFFFFF;
+  --ink:#1A2332;
+  --muted:#5A6B7D;
+  --light:#94A3B4;
+  --brand:#4EC0CA;
+  --brand-d:#3AA5AF;
+  --brand-l:#D4F1F4;
+  --accent:#FF8C42;
+  --accent-d:#E6772A;
+  --accent-l:#FFF0E4;
+  --dark:#2C3E50;
+  --line:rgba(90,107,125,0.12);
+  --line-strong:rgba(90,107,125,0.25);
+  --radius-sm:6px;
+  --radius-md:10px;
+  --radius-lg:16px;
+  --radius-xl:20px;
+  --shadow-sm:0 1px 3px rgba(28,35,50,0.04);
+  --shadow-md:0 4px 16px rgba(28,35,50,0.06);
+  --shadow-lg:0 12px 36px rgba(28,35,50,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter','Noto Sans SC',system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:880px;margin:0 auto;padding:56px 32px;position:relative}
+
+/* ---- Hero ---- */
+.hero{text-align:center;padding:64px 0 48px;position:relative}
+.hero-badge{
+  display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.12em;
+  color:var(--brand-d);background:var(--brand-l);padding:5px 16px;
+  border-radius:20px;margin-bottom:20px;text-transform:uppercase;
+}
+.hero h1{
+  font-size:clamp(36px,5.5vw,56px);font-weight:700;color:var(--ink);
+  line-height:1.15;margin-bottom:14px;letter-spacing:-0.02em;
+}
+.hero h1 .hl{
+  color:var(--brand-d);
+  background:linear-gradient(transparent 62%,var(--brand-l) 62%);
+  padding:0 4px;
+}
+.hero-sub{
+  font-size:17px;color:var(--muted);max-width:600px;margin:0 auto 28px;
+  line-height:1.65;
+}
+.hero-sub strong{color:var(--brand-d);font-weight:600}
+.hero-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:36px}
+.hero-stat{text-align:center}
+.hero-stat .num{
+  font-size:32px;font-weight:700;color:var(--accent);display:block;line-height:1.2;
+}
+.hero-stat .lbl{font-size:12px;color:var(--muted);margin-top:2px}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;padding:10px 22px;
+  font-size:13px;font-weight:500;border-radius:24px;text-decoration:none;
+  transition:all .18s;font-family:inherit;cursor:pointer;border:none;
+}
+.btn--primary{background:var(--brand);color:#fff}
+.btn--primary:hover{background:var(--brand-d);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn--outline{background:transparent;color:var(--ink);border:1.5px solid var(--line-strong)}
+.btn--outline:hover{border-color:var(--brand);color:var(--brand-d);background:rgba(78,192,202,0.04)}
+
+/* ---- Section共用 ---- */
+section{margin-bottom:64px}
+.sec-num{
+  font-size:11px;font-weight:600;color:var(--accent);
+  letter-spacing:0.12em;margin-bottom:6px;text-transform:uppercase;
+}
+.sec-title{
+  font-size:30px;font-weight:700;color:var(--ink);margin-bottom:8px;
+  letter-spacing:-0.01em;
+}
+.sec-desc{
+  font-size:14px;color:var(--muted);margin-bottom:28px;max-width:600px;
+}
+
+/* ---- 痛点卡片 ---- */
+.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px}
+.pain-card{
+  background:var(--paper);border-radius:var(--radius-lg);padding:22px 24px;
+  border:1px solid var(--line);
+}
+.pain-card .icon{font-size:24px;margin-bottom:10px}
+.pain-card h3{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.pain-card p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* ---- 流程对比 ---- */
+.flow-compare{
+  background:var(--paper);border-radius:var(--radius-lg);padding:28px 32px;
+  border:1px solid var(--line);text-align:center;
+}
+
+/* ---- 竞品卡片 ---- */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.comp-card{
+  background:var(--paper);border-radius:var(--radius-lg);padding:22px 20px;
+  border:1px solid var(--line);text-align:center;
+}
+.comp-card.featured{border-color:var(--brand);background:linear-gradient(180deg,#fff 0%,var(--brand-l) 100%)}
+.comp-card .app-icon{
+  width:48px;height:48px;border-radius:12px;margin:0 auto 12px;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.comp-card .app-name{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.comp-card .app-type{font-size:11px;color:var(--accent);font-weight:500;margin-bottom:12px}
+.comp-card .app-scores{text-align:left;font-size:12px;color:var(--muted);line-height:2}
+.comp-card .app-scores span{float:right;color:var(--ink);font-weight:600}
+
+/* ---- 柱状图 ---- */
+.bar-chart{
+  background:var(--paper);border-radius:var(--radius-lg);padding:28px 32px;
+  border:1px solid var(--line);
+}
+.bar-chart h4{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:20px;text-align:center}
+
+/* ---- Highlight ---- */
+.highlight-box{
+  background:linear-gradient(135deg,var(--accent-l) 0%,#fff 100%);
+  border-radius:var(--radius-lg);padding:24px 28px;border:1px solid rgba(255,140,66,0.15);
+  margin:20px 0;
+}
+.highlight-box p{font-size:14px;color:var(--ink);line-height:1.7}
+.highlight-box strong{color:var(--accent-d)}
+.highlight-box.blue{background:linear-gradient(135deg,var(--brand-l) 0%,#fff 100%);border-color:rgba(78,192,202,0.2)}
+
+/* ---- 定位 ---- */
+.positioning-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.pos-card{
+  background:var(--paper);border-radius:var(--radius-lg);padding:22px 24px;
+  border:1px solid var(--line);
+}
+.pos-card h3{font-size:14px;font-weight:600;color:var(--brand-d);margin-bottom:8px}
+.pos-card p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* ---- 架构图 ---- */
+.arch-diagram{
+  background:var(--paper);border-radius:var(--radius-lg);padding:24px 28px;
+  border:1px solid var(--line);text-align:center;
+}
+
+/* ---- 功能详情行（带截图占位） ---- */
+.feat-detail{
+  display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;
+  margin-bottom:36px;padding-bottom:36px;
+  border-bottom:1px solid var(--line);
+}
+.feat-detail:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.feat-detail.reverse{direction:rtl}
+.feat-detail.reverse .feat-detail-text{direction:ltr}
+.feat-detail-text h3{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:10px}
+.feat-detail-text p{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:14px}
+.feat-detail-text .feat-tags{display:flex;gap:8px;flex-wrap:wrap}
+.feat-detail-text .feat-tags span{
+  font-size:10.5px;padding:4px 12px;border-radius:14px;
+  background:var(--brand-l);color:var(--brand-d);font-weight:500;
+}
+.feat-detail-img{
+  background:var(--bg);border-radius:var(--radius-lg);
+  border:1.5px dashed var(--line-strong);
+  aspect-ratio:9/16;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;color:var(--light);gap:6px;overflow:hidden;
+  max-width:260px;margin:0 auto;width:100%;
+  transition:border-color .2s;
+}
+.feat-detail-img:hover{border-color:var(--brand)}
+.feat-detail-img .ph-icon{font-size:28px;opacity:0.4}
+.feat-detail-img .ph-text{font-size:11px;opacity:0.55}
+.feat-detail-img img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg)}
+
+/* ---- 导出结果画廊 ---- */
+.result-gallery{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:0;align-items:start}
+.result-left{display:flex;flex-direction:column;gap:16px}
+.result-item{
+  background:var(--paper);border-radius:var(--radius-lg);border:1px solid var(--line);
+  overflow:hidden;text-align:center;
+}
+.result-item img{width:100%;height:auto;display:block;object-fit:cover}
+.result-item .result-cap{
+  font-size:11px;font-weight:500;color:var(--muted);padding:10px 12px;
+  background:var(--bg);letter-spacing:0.02em;
+}
+.result-item .result-cap span{color:var(--brand-d);font-weight:600}
+.result-right{
+  background:var(--paper);border-radius:var(--radius-lg);border:1px solid var(--line);
+  overflow:hidden;text-align:center;grid-row:1/4;
+}
+.result-right img{width:100%;height:100%;object-fit:cover;display:block;min-height:300px}
+.result-right .result-cap{
+  font-size:11px;font-weight:500;color:var(--muted);padding:10px 12px;
+  background:var(--bg);letter-spacing:0.02em;
+}
+.result-right .result-cap span{color:var(--brand-d);font-weight:600}
+
+@media (max-width:680px){
+  .result-gallery{grid-template-columns:1fr}
+  .result-right{grid-row:auto}
+}
+
+/* ---- Vibe Coding ---- */
+.vibe-flow{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  flex-wrap:wrap;margin:24px 0;
+}
+.vibe-step{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);
+  padding:14px 18px;text-align:center;font-size:12px;font-weight:500;color:var(--ink);
+}
+.vibe-arrow{color:var(--accent);font-size:18px;font-weight:700}
+.vibe-loop{
+  display:block;text-align:center;margin-top:16px;
+  font-size:11px;color:var(--accent);font-weight:600;letter-spacing:0.06em;
+}
+
+/* ---- DB Schema ---- */
+.db-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.db-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:14px 16px;text-align:center;
+}
+.db-card .coll-name{font-size:12px;font-weight:600;color:var(--brand-d);font-family:monospace}
+.db-card .coll-desc{font-size:10.5px;color:var(--muted);margin-top:4px}
+
+/* ---- Footer ---- */
+footer{
+  margin-top:72px;padding-top:28px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:14px;
+}
+.foot-l{font-size:11px;color:var(--light)}
+.foot-r{display:flex;gap:16px}
+.foot-r a{
+  font-size:11px;color:var(--brand-d);text-decoration:none;
+  border-bottom:1px solid var(--line);padding-bottom:2px;
+}
+.foot-r a:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ---- 滚动动画 ---- */
+.reveal{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .55s ease,transform .55s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+
+/* ---- 响应式 ---- */
+@media (max-width:680px){
+  .hero h1{font-size:30px}
+  .hero-stats{gap:18px}
+  .hero-stat .num{font-size:26px}
+  .pain-grid,.comp-grid,.positioning-grid,.db-grid{grid-template-columns:1fr}
+  .feat-detail{grid-template-columns:1fr;gap:16px}
+  .feat-detail.reverse{direction:ltr}
+  .feat-detail-img{max-width:200px;aspect-ratio:9/16}
+  .container{padding:32px 20px}
+  section{margin-bottom:48px}
+  .sec-title{font-size:24px}
+  .vibe-flow{flex-direction:column;gap:8px}
+  .vibe-arrow{transform:rotate(90deg)}
+}
+@media (max-width:400px){
+  .hero h1{font-size:26px}
+  .hero-stats{flex-direction:column;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ====== HERO ====== -->
+<header class="hero">
+  <div class="hero-badge">PRODUCT CASE STUDY</div>
+  <h1>SiteWalk · <span class="hl">规划踏勘记</span></h1>
+  <p class="hero-sub">
+    一款面向城乡规划学生的<strong>实地调研协作工具</strong>（微信小程序）。
+    将传统调研中拍照、笔记、轨迹记录整合为<strong>结构化数字流程</strong>，
+    支持带方向标记的拍照、图文录入以及一键多格式导出。
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num" style="color:var(--brand-d)">2-3h → 30min</span>
+      <span class="lbl">数据整理效率提升</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">2</span>
+      <span class="lbl">竞品深度拆解</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">3 维度</span>
+      <span class="lbl">差异化定位对比</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">8</span>
+      <span class="lbl">页面 · 6组件 · 3云函数</span>
+    </div>
+  </div>
+</header>
+
+<!-- ====== 01 / THE PROBLEM ====== -->
+<section id="problem">
+  <div class="sec-num reveal">01 / THE PROBLEM</div>
+  <h2 class="sec-title reveal">调研之痛：一个规划学生的日常</h2>
+  <p class="sec-desc reveal">
+    传统实地调研需要在多个 App 之间反复切换——数据碎片化、照片缺乏方向信息、
+    回校后需要 2-3 小时手工整理。这不是某个人的问题，是整个教学流程的痛点。
+  </p>
+
+  <div class="pain-grid">
+    <div class="pain-card reveal">
+      <div class="icon">📱</div>
+      <h3>多 App 切换，数据割裂</h3>
+      <p>拍照用相机、记笔记用备忘录、打点用地图 App、最后还要手动匹配——不同工具产出的数据格式互不兼容，整理全靠人工。</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="icon">🧭</div>
+      <h3>照片缺少方向记录</h3>
+      <p>拍了一张街景照，回来不记得是朝哪个方向拍的。规划专业需要知道"这栋楼在路口西北角"——普通相机记录不了这些。</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="icon">🗂️</div>
+      <h3>信息碎片化，难以归档</h3>
+      <p>照片在手机里、笔记在微信里、轨迹在另一个 App 里。团队协作时各自的数据格式都不统一，合并成本极高。</p>
+    </div>
+    <div class="pain-card reveal">
+      <div class="icon">⏳</div>
+      <h3>人工整理耗时巨大</h3>
+      <p>调研结束后手动建 Excel 台账、手动匹配照片与点位、手动描轨迹。半天调研，两天整理——大量时间花在机械劳动上。</p>
+    </div>
+  </div>
+
+  <!-- 流程对比 SVG -->
+  <div class="flow-compare reveal">
+    <svg viewBox="0 0 800 210" width="100%" max-width="800" height="auto" style="max-width:800px" aria-label="传统流程 vs SiteWalk流程对比">
+      <text x="190" y="22" text-anchor="middle" font-size="12" fill="#94A3B4" font-weight="500">传统调研流程</text>
+      <text x="610" y="22" text-anchor="middle" font-size="12" fill="#4EC0CA" font-weight="600">SiteWalk 流程</text>
+
+      <rect x="20" y="42" width="88" height="40" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="1.5"/>
+      <text x="64" y="60" text-anchor="middle" font-size="10" fill="#5A6B7D">📷 相机拍照</text>
+      <text x="64" y="74" text-anchor="middle" font-size="9" fill="#94A3B4">无方向标记</text>
+
+      <text x="118" y="66" font-size="16" fill="#CBD5E1">→</text>
+
+      <rect x="130" y="42" width="88" height="40" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="1.5"/>
+      <text x="174" y="60" text-anchor="middle" font-size="10" fill="#5A6B7D">📝 备忘录</text>
+      <text x="174" y="74" text-anchor="middle" font-size="9" fill="#94A3B4">文字笔记</text>
+
+      <text x="228" y="66" font-size="16" fill="#CBD5E1">→</text>
+
+      <rect x="240" y="42" width="88" height="40" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="1.5"/>
+      <text x="284" y="60" text-anchor="middle" font-size="10" fill="#5A6B7D">🗺️ 地图 App</text>
+      <text x="284" y="74" text-anchor="middle" font-size="9" fill="#94A3B4">GPS 轨迹</text>
+
+      <text x="338" y="66" font-size="16" fill="#CBD5E1">→</text>
+
+      <rect x="350" y="42" width="88" height="40" rx="8" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+      <text x="394" y="60" text-anchor="middle" font-size="10" fill="#DC2626">🔧 手工整理</text>
+      <text x="394" y="74" text-anchor="middle" font-size="9" fill="#EF4444">2-3 小时</text>
+
+      <text x="440" y="66" font-size="22" fill="#E2E8F0">⟹</text>
+
+      <rect x="480" y="42" width="120" height="40" rx="8" fill="#D4F1F4" stroke="#4EC0CA" stroke-width="1.5"/>
+      <text x="540" y="58" text-anchor="middle" font-size="11" fill="#3AA5AF" font-weight="600">SiteWalk</text>
+      <text x="540" y="73" text-anchor="middle" font-size="10" fill="#3AA5AF">一体化采集</text>
+
+      <text x="610" y="66" font-size="16" fill="#4EC0CA">→</text>
+
+      <rect x="622" y="42" width="120" height="40" rx="8" fill="#D4F1F4" stroke="#4EC0CA" stroke-width="1.5"/>
+      <text x="682" y="58" text-anchor="middle" font-size="11" fill="#3AA5AF" font-weight="600">一键导出</text>
+      <text x="682" y="73" text-anchor="middle" font-size="10" fill="#3AA5AF">Excel/GPX/KML</text>
+
+      <rect x="280" y="110" width="240" height="32" rx="16" fill="#FFF0E4"/>
+      <text x="400" y="131" text-anchor="middle" font-size="13" fill="#E6772A" font-weight="600">⏱ 2-3 小时 → 30 分钟，效率提升 4-6 倍</text>
+
+      <text x="400" y="170" text-anchor="middle" font-size="11" fill="#94A3B4">拍照（含方向） + 笔记 + 标签 + 轨迹 → 统一采集 → 结构化导出</text>
+      <text x="400" y="190" text-anchor="middle" font-size="10" fill="#CBD5E1">照片包 · Excel 台账 · GPX 轨迹 · KML 图层 — 全部包含完整元数据</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ====== 02 / COMPETITIVE ANALYSIS ====== -->
+<section>
+  <div class="sec-num reveal">02 / COMPETITIVE ANALYSIS</div>
+  <h2 class="sec-title reveal">竞品研究：为什么不做另一个"轨迹记录器"</h2>
+  <p class="sec-desc reveal">
+    深度拆解 2 款主流户外记录 App，从三个核心维度横向对比，找到一个被忽视的需求缺口。
+  </p>
+
+  <div class="comp-grid">
+    <div class="comp-card reveal">
+      <div class="app-icon" style="background:#E8F4F8">🥾</div>
+      <div class="app-name">两步路</div>
+      <div class="app-type">户外运动 · 轨迹记录</div>
+      <div class="app-scores">
+        方向记录 <span>★★☆☆☆</span><br>
+        信息录入 <span>★★☆☆☆</span><br>
+        报告导出 <span>★★★☆☆</span>
+      </div>
+    </div>
+    <div class="comp-card reveal d1">
+      <div class="app-icon" style="background:#E8F4F8">🦶</div>
+      <div class="app-name">六只脚</div>
+      <div class="app-type">户外旅行 · 足迹分享</div>
+      <div class="app-scores">
+        方向记录 <span>★★☆☆☆</span><br>
+        信息录入 <span>★★☆☆☆</span><br>
+        报告导出 <span>★★★☆☆</span>
+      </div>
+    </div>
+    <div class="comp-card featured reveal d2">
+      <div class="app-icon" style="background:var(--brand)">🏗️</div>
+      <div class="app-name">SiteWalk</div>
+      <div class="app-type" style="color:var(--brand-d)">调研工具 · 结构化</div>
+      <div class="app-scores">
+        方向记录 <span style="color:var(--brand-d)">★★★★★</span><br>
+        信息录入 <span style="color:var(--brand-d)">★★★★★</span><br>
+        报告导出 <span style="color:var(--brand-d)">★★★★★</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 三维度柱状对比图 SVG -->
+  <div class="bar-chart reveal">
+    <h4>三维度横向对比：方向记录 / 信息录入 / 报告导出</h4>
+    <svg viewBox="0 0 700 280" width="100%" max-width="700" height="280" aria-label="竞品三维度对比柱状图">
+      <line x1="80" y1="40" x2="80" y2="220" stroke="#E2E8F0" stroke-width="1"/>
+      <line x1="80" y1="220" x2="660" y2="220" stroke="#E2E8F0" stroke-width="1"/>
+      <line x1="80" y1="175" x2="660" y2="175" stroke="#F1F5F9" stroke-width="0.5"/>
+      <line x1="80" y1="130" x2="660" y2="130" stroke="#F1F5F9" stroke-width="0.5"/>
+      <line x1="80" y1="85" x2="660" y2="85" stroke="#F1F5F9" stroke-width="0.5"/>
+
+      <text x="70" y="224" text-anchor="end" font-size="10" fill="#94A3B4">0</text>
+      <text x="70" y="179" text-anchor="end" font-size="10" fill="#94A3B4">25</text>
+      <text x="70" y="134" text-anchor="end" font-size="10" fill="#94A3B4">50</text>
+      <text x="70" y="89" text-anchor="end" font-size="10" fill="#94A3B4">75</text>
+      <text x="70" y="44" text-anchor="end" font-size="10" fill="#94A3B4">100</text>
+
+      <!-- 方向记录 -->
+      <text x="175" y="238" text-anchor="middle" font-size="11" fill="#5A6B7D" font-weight="500">方向记录</text>
+      <rect x="105" y="205" width="36" height="15" rx="3" fill="#CBD5E1"/>
+      <text x="123" y="200" text-anchor="middle" font-size="9" fill="#64748B">20</text>
+      <rect x="154" y="205" width="36" height="15" rx="3" fill="#CBD5E1"/>
+      <text x="172" y="200" text-anchor="middle" font-size="9" fill="#64748B">15</text>
+      <rect x="203" y="40" width="36" height="180" rx="3" fill="#4EC0CA"/>
+      <text x="221" y="34" text-anchor="middle" font-size="10" fill="#3AA5AF" font-weight="600">95</text>
+      <text x="123" y="218" text-anchor="middle" font-size="8" fill="#94A3B4">两步路</text>
+      <text x="172" y="218" text-anchor="middle" font-size="8" fill="#94A3B4">六只脚</text>
+      <text x="221" y="218" text-anchor="middle" font-size="8" fill="#3AA5AF" font-weight="500">SiteWalk</text>
+
+      <!-- 信息录入 -->
+      <text x="395" y="238" text-anchor="middle" font-size="11" fill="#5A6B7D" font-weight="500">信息录入</text>
+      <rect x="325" y="193" width="36" height="27" rx="3" fill="#CBD5E1"/>
+      <text x="343" y="188" text-anchor="middle" font-size="9" fill="#64748B">30</text>
+      <rect x="374" y="202" width="36" height="18" rx="3" fill="#CBD5E1"/>
+      <text x="392" y="197" text-anchor="middle" font-size="9" fill="#64748B">20</text>
+      <rect x="423" y="40" width="36" height="180" rx="3" fill="#FF8C42"/>
+      <text x="441" y="34" text-anchor="middle" font-size="10" fill="#E6772A" font-weight="600">90</text>
+      <text x="343" y="218" text-anchor="middle" font-size="8" fill="#94A3B4">两步路</text>
+      <text x="392" y="218" text-anchor="middle" font-size="8" fill="#94A3B4">六只脚</text>
+      <text x="441" y="218" text-anchor="middle" font-size="8" fill="#E6772A" font-weight="500">SiteWalk</text>
+
+      <!-- 报告导出 -->
+      <text x="615" y="238" text-anchor="middle" font-size="11" fill="#5A6B7D" font-weight="500">报告导出</text>
+      <rect x="545" y="148" width="36" height="72" rx="3" fill="#CBD5E1"/>
+      <text x="563" y="143" text-anchor="middle" font-size="9" fill="#64748B">55</text>
+      <rect x="594" y="140" width="36" height="80" rx="3" fill="#CBD5E1"/>
+      <text x="612" y="135" text-anchor="middle" font-size="9" fill="#64748B">60</text>
+      <rect x="643" y="40" width="36" height="180" rx="3" fill="#4EC0CA"/>
+      <text x="661" y="34" text-anchor="middle" font-size="10" fill="#3AA5AF" font-weight="600">98</text>
+      <text x="563" y="218" text-anchor="middle" font-size="8" fill="#94A3B4">两步路</text>
+      <text x="612" y="218" text-anchor="middle" font-size="8" fill="#94A3B4">六只脚</text>
+      <text x="661" y="218" text-anchor="middle" font-size="8" fill="#3AA5AF" font-weight="500">SiteWalk</text>
+
+      <!-- 图例 -->
+      <rect x="560" y="255" width="10" height="10" rx="2" fill="#CBD5E1"/>
+      <text x="574" y="264" font-size="9" fill="#94A3B4">竞品平均值 30-55</text>
+      <rect x="560" y="270" width="10" height="5" rx="2" fill="#4EC0CA"/>
+      <text x="574" y="275" font-size="9" fill="#3AA5AF">SiteWalk 90+</text>
+    </svg>
+  </div>
+
+  <div class="highlight-box reveal">
+    <p><strong>🔑 关键发现：</strong>两步路和六只脚的核心定位都是"户外运动轨迹记录"——它们的用户是徒步/骑行爱好者，关心的是海拔、配速、里程。但对于规划专业调研而言，真正需要的是<strong>方向标记、结构化录入、专业格式导出</strong>——这三个维度上，现有产品几乎是空白。这就是 SiteWalk 的切入点：<strong>不是做"更好的轨迹记录器"，而是做"调研信息结构化工具"</strong>。</p>
+  </div>
+</section>
+
+<!-- ====== 03 / PRODUCT POSITIONING ====== -->
+<section>
+  <div class="sec-num reveal">03 / PRODUCT POSITIONING</div>
+  <h2 class="sec-title reveal">产品定位：调研信息结构化工具</h2>
+  <p class="sec-desc reveal">
+    明确"不是什么"比"是什么"更重要。SiteWalk 不是运动轨迹记录器，而是为规划专业调研量身定制的数据采集与导出系统。
+  </p>
+
+  <div class="positioning-grid">
+    <div class="pos-card reveal">
+      <h3>🎯 目标用户</h3>
+      <p>城乡规划、建筑学、风景园林专业的<strong>在校学生与教师</strong>——需要进行实地踏勘、收集现场数据、输出调研报告的人群。</p>
+    </div>
+    <div class="pos-card reveal">
+      <h3>💡 核心价值主张</h3>
+      <p><strong>调研信息结构化</strong>——将拍照（含方向）、笔记、标签、GPS 轨迹整合为统一的数据流，一键导出为可交付的专业格式（Excel/GPX/KML/照片包）。</p>
+    </div>
+    <div class="pos-card reveal">
+      <h3>🚫 我们不是什么</h3>
+      <p>不做运动记录（不关心配速/海拔/卡路里）、不做社交分享（没有动态/点赞/排行榜）、不做通用笔记（不做 Markdown/富文本）——<strong>专注调研这一个场景</strong>。</p>
+    </div>
+    <div class="pos-card reveal">
+      <h3>🔖 差异化维度</h3>
+      <p><strong>方向感知拍照</strong>（罗盘+陀螺仪）→ <strong>结构化标签体系</strong>（3 级预设+自定义）→ <strong>专业格式导出</strong>（含完整元数据的 Excel/GPX/KML）——三个环节形成闭环。</p>
+    </div>
+  </div>
+
+  <div class="highlight-box blue reveal">
+    <p><strong>📍 产品定位宣言：</strong>传统的"调研 → 整理 → 出报告"流程中，<strong>整理环节是最大的时间黑洞</strong>。SiteWalk 的价值不是增加一个新功能，而是<strong>让整理环节消失</strong>——因为你在调研过程中录入的每一条数据，从一开始就是结构化的。</p>
+  </div>
+</section>
+
+<!-- ====== 04 / ARCHITECTURE ====== -->
+<section>
+  <div class="sec-num reveal">04 / ARCHITECTURE</div>
+  <h2 class="sec-title reveal">技术架构：离线优先的三层体系</h2>
+  <p class="sec-desc reveal">
+    调研常在网络不稳定的户外进行——"没网就不能用"是不可接受的。架构设计从第一天就以离线优先为核心原则。
+  </p>
+
+  <div class="arch-diagram reveal">
+    <svg viewBox="0 0 700 340" width="100%" max-width="700" height="340" aria-label="三层技术架构图">
+      <rect x="60" y="20" width="580" height="80" rx="10" fill="#D4F1F4" stroke="#4EC0CA" stroke-width="1.5"/>
+      <text x="350" y="46" text-anchor="middle" font-size="14" fill="#3AA5AF" font-weight="600">表现层 · 微信小程序前端</text>
+      <text x="350" y="66" text-anchor="middle" font-size="11" fill="#5A6B7D">8 个页面（Home · Map · Point-Edit · Export · Settings · Auth · Recycle · Label）</text>
+      <text x="350" y="84" text-anchor="middle" font-size="11" fill="#5A6B7D">6 个组件（ProjectCard · TrackControl · PhotoViewer · WatermarkEditor · MeasureTool · GroupSelector）</text>
+
+      <line x1="350" y1="100" x2="350" y2="125" stroke="#4EC0CA" stroke-width="2"/>
+      <polygon points="345,122 350,132 355,122" fill="#4EC0CA"/>
+
+      <rect x="60" y="132" width="580" height="55" rx="10" fill="#FFF0E4" stroke="#FF8C42" stroke-width="1.5"/>
+      <text x="350" y="156" text-anchor="middle" font-size="14" fill="#E6772A" font-weight="600">工具层 · 离线优先同步引擎</text>
+      <text x="350" y="176" text-anchor="middle" font-size="11" fill="#5A6B7D">Cloud API 封装 · LocalStorage 缓存 · 待同步队列（6种操作类型）· 网络监测 · 自动冲刷</text>
+
+      <line x1="350" y1="187" x2="350" y2="212" stroke="#FF8C42" stroke-width="2"/>
+      <polygon points="345,209 350,219 355,209" fill="#FF8C42"/>
+
+      <rect x="60" y="220" width="580" height="95" rx="10" fill="#E8ECF0" stroke="#2C3E50" stroke-width="1.5"/>
+      <text x="350" y="244" text-anchor="middle" font-size="14" fill="#2C3E50" font-weight="600">服务层 · 微信云开发</text>
+      <text x="350" y="264" text-anchor="middle" font-size="11" fill="#5A6B7D">云数据库（6 个集合）· 云存储（照片/文件）· 云函数（Excel / GPX-KML / 初始化）</text>
+      <text x="350" y="282" text-anchor="middle" font-size="10" fill="#94A3B4">NoSQL 文档型 · Node.js 运行时 · 自动扩缩容 · 免运维</text>
+
+      <text x="350" y="312" text-anchor="middle" font-size="9" fill="#94A3B4">离线时：操作 → 本地缓存 + 待同步队列 → 网络恢复 → 自动按序冲刷 → 云端</text>
+    </svg>
+  </div>
+
+  <h4 style="font-size:13px;font-weight:600;color:var(--ink);margin:24px 0 12px;text-align:center">数据库 6 集合设计</h4>
+  <div class="db-grid reveal">
+    <div class="db-card"><div class="coll-name">projects</div><div class="coll-desc">项目信息 · 分组 · 软删除</div></div>
+    <div class="db-card"><div class="coll-name">groups</div><div class="coll-desc">分组管理 · 排序</div></div>
+    <div class="db-card"><div class="coll-name">tracks</div><div class="coll-desc">轨迹坐标 · 录制状态 · 颜色</div></div>
+    <div class="db-card"><div class="coll-name">points</div><div class="coll-desc">打卡点 · 方位角 · 标签 · 备注</div></div>
+    <div class="db-card"><div class="coll-name">photos</div><div class="coll-desc">照片云存储 · 标注数据</div></div>
+    <div class="db-card"><div class="coll-name">labels</div><div class="coll-desc">3级预设标签 · 自定义标签</div></div>
+  </div>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+    <span style="font-size:11px;color:var(--brand-d);background:var(--brand-l);padding:6px 14px;border-radius:20px;font-weight:500">☁️ exportExcel · xlsx 库</span>
+    <span style="font-size:11px;color:var(--accent-d);background:var(--accent-l);padding:6px 14px;border-radius:20px;font-weight:500">☁️ exportGPX_KML · XML 生成</span>
+    <span style="font-size:11px;color:var(--muted);background:#E8ECF0;padding:6px 14px;border-radius:20px;font-weight:500">☁️ initDB · 数据库初始化</span>
+  </div>
+</section>
+
+<!-- ====== 05 / CORE FEATURES ====== -->
+<section>
+  <div class="sec-num reveal">05 / CORE FEATURES</div>
+  <h2 class="sec-title reveal">核心功能 + 导出成果</h2>
+  <p class="sec-desc reveal">
+    每个功能模块都围绕"调研信息结构化"这一核心目标设计——采集、录入、导出形成完整链路。
+    下方为 4 个核心功能模块的小程序截图，以及最终的导出成果展示。
+  </p>
+
+  <!-- 功能1: 方向标记拍照 -->
+  <div class="feat-detail reveal">
+    <div class="feat-detail-text">
+      <h3>📸 方向标记拍照</h3>
+      <p>调用手机<strong>罗盘 API</strong> 获取拍摄时的地理方位角，<strong>陀螺仪</strong>获取俯仰角。照片通过 Canvas 自动叠加<strong>方向箭头水印</strong>（箭头始终指向正北），支持"朝北拍摄""面向东北"等自然语言方向标注。拍照即完成定位和方向记录，无需事后手动标注。</p>
+      <div class="feat-tags">
+        <span>wx.compass</span><span>陀螺仪</span><span>Canvas 水印</span><span>EXIF 元数据</span>
+      </div>
+    </div>
+    <div class="feat-detail-img" style="border-style:solid;border-color:var(--line)">
+      <img src="images/shot-camera.png" alt="方向标记拍照 — 小程序截图" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 功能2: 地图轨迹录制 -->
+  <div class="feat-detail reverse reveal">
+    <div class="feat-detail-img" style="border-style:solid;border-color:var(--line)">
+      <img src="images/shot-map.png" alt="地图与轨迹录制 — 小程序截图" loading="lazy">
+    </div>
+    <div class="feat-detail-text">
+      <h3>🗺️ 地图与轨迹录制</h3>
+      <p>基于微信原生<strong>&lt;map&gt; 组件</strong>，支持实时 GPS 轨迹录制（打点间隔可调 1-30s）、<strong>打卡点标记</strong>（长按地图或点击标记，关联标签与备注）、<strong>轨迹回放</strong>与颜色自定义。录制中可随时暂停/继续，多项目之间切换不丢失录制状态。</p>
+      <div class="feat-tags">
+        <span>wx.map</span><span>GPS 轨迹</span><span>打卡标记</span><span>多颜色管理</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 功能3: 结构化录入 -->
+  <div class="feat-detail reveal">
+    <div class="feat-detail-text">
+      <h3>🏷️ 结构化信息录入</h3>
+      <p><strong>5 大类 3 级预设标签体系</strong>（用地/建筑/交通/环境/问题），支持自定义标签扩展。每个调研点位关联：标签分类 + 文字备注 + <strong>语音录入（自动转文字）</strong>+ 现场照片。数据以点位为单位结构化存储，彻底告别"照片一堆、笔记散落各处"的碎片化状态。</p>
+      <div class="feat-tags">
+        <span>3级标签树</span><span>语音转文字</span><span>自定义扩展</span><span>点位绑定</span>
+      </div>
+    </div>
+    <div class="feat-detail-img" style="border-style:solid;border-color:var(--line)">
+      <img src="images/shot-input.png" alt="结构化信息录入 — 小程序截图" loading="lazy">
+    </div>
+  </div>
+
+  <!-- 功能4: 多格式导出 -->
+  <div class="feat-detail reverse reveal">
+    <div class="feat-detail-img" style="border-style:solid;border-color:var(--line)">
+      <img src="images/shot-export.png" alt="多格式导出 — 小程序截图" loading="lazy">
+    </div>
+    <div class="feat-detail-text">
+      <h3>📦 多格式一键导出</h3>
+      <p>云端函数处理导出，支持 <strong>4 种产出格式</strong>：① 照片包（含方向水印，按点位命名）② Excel 台账（3 个 Sheet：点位汇总 / 标签明细 / 轨迹坐标）③ GPX 轨迹文件（含 &lt;wpt&gt; waypoint，兼容 QGIS/ArcGIS）④ KML 图层文件（直接加载到 ArcGIS/CAD）。所有文件<strong>包含完整调研元数据</strong>，可作为课程报告附件直接提交。</p>
+      <div class="feat-tags">
+        <span>Excel xlsx</span><span>GPX waypoint</span><span>KML 图层</span><span>云函数</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 导出结果展示 -->
+  <div class="reveal">
+    <h3 style="font-size:17px;font-weight:600;color:var(--ink);margin-bottom:6px">📋 导出结果示例</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.7">
+      一趟调研完成后，一键导出以下 4 类成果文件。所有文件<strong>包含完整调研元数据</strong>，可直接作为课程报告附件提交。
+    </p>
+    <div class="result-gallery">
+      <div class="result-left">
+        <div class="result-item reveal">
+          <img src="images/shot-result1.png" alt="Excel 调研台账" loading="lazy">
+          <div class="result-cap"><span>📊 调研台账</span> — Excel 导出，含点位汇总 / 标签明细 / 轨迹坐标 3 个 Sheet</div>
+        </div>
+        <div class="result-item reveal">
+          <img src="images/shot-result2.png" alt="照片详情数据" loading="lazy">
+          <div class="result-cap"><span>📷 照片详情</span> — 每张照片关联点位、方向角、标签、备注等完整信息</div>
+        </div>
+        <div class="result-item reveal">
+          <img src="images/shot-result3.png" alt="GPX 轨迹数据" loading="lazy">
+          <div class="result-cap"><span>🗺️ 轨迹数据</span> — GPX/KML 格式，含 waypoint 打卡点，兼容 QGIS/ArcGIS/CAD</div>
+        </div>
+      </div>
+      <div class="result-right reveal">
+        <img src="images/shot-result4.png" alt="导出照片示例" loading="lazy">
+        <div class="result-cap"><span>🖼️ 导出照片</span> — 含方向水印 + 点位标签 + 备注信息，右下角自动叠加</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 06 / VIBE CODING ====== -->
+<section>
+  <div class="sec-num reveal">06 / VIBE CODING</div>
+  <h2 class="sec-title reveal">AI 协作开发：一人即团队</h2>
+  <p class="sec-desc reveal">
+    SiteWalk 全程使用 Claude Code 开发。作为独立开发者，我沉淀了一套"双文档驱动"的 AI 协作方法论——让 AI 在长周期多会话开发中保持设计一致性和代码质量。
+  </p>
+
+  <div class="vibe-flow reveal">
+    <div class="vibe-step">📋 需求分析<br><small style="color:#94A3B4">PRD · 竞品报告</small></div>
+    <span class="vibe-arrow">→</span>
+    <div class="vibe-step">📐 文档固化<br><small style="color:#94A3B4">CLAUDE.md · DESIGN.md</small></div>
+    <span class="vibe-arrow">→</span>
+    <div class="vibe-step">✍️ Prompt 驱动<br><small style="color:#94A3B4">分阶段交付</small></div>
+    <span class="vibe-arrow">→</span>
+    <div class="vibe-step">🔍 验证纠偏<br><small style="color:#94A3B4">代码审查 · 边界测试</small></div>
+  </div>
+  <span class="vibe-loop reveal">⟲ 循环迭代：每轮产出可交付物 → 文档同步更新 → 下一轮上下文一致</span>
+
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px">
+    <div class="pos-card reveal">
+      <h3>📄 CLAUDE.md · 项目基线</h3>
+      <p>包含项目概述、技术栈、命名规范、文件结构、关键约束。每次新会话自动加载——确保 Claude 在多周开发中理解项目全貌，不会"只见树木不见森林"。</p>
+    </div>
+    <div class="pos-card reveal">
+      <h3>🎨 DESIGN.md · 设计 token 固化</h3>
+      <p>将配色、圆角、间距、字体、阴影、动效参数全部编码为可读文本。让 AI 写出的 UI 代码天然符合设计规范，大幅减少"样式漂移"和来回修改。</p>
+    </div>
+    <div class="pos-card reveal">
+      <h3>🧩 需求拆解为可执行 Prompt</h3>
+      <p>将"做一个导出功能"拆解为：输入格式 → 输出格式 → 约束条件 → 边界情况 → 错误处理。每个模块独立拆分，避免单次 Prompt 信息过载导致输出质量下降。</p>
+    </div>
+    <div class="pos-card reveal">
+      <h3>🛠️ 完整交付物</h3>
+      <p>Claude Code（主开发工具）· 微信开发者工具（预览/调试/真机测试）· Git（版本管理）。最终交付：8 页面 + 6 组件 + 6 工具模块 + 3 云函数 + 5 份完整文档。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="foot-l">© 2026 赵阳 · SiteWalk 项目展示 · 由 Claude Code 协助构建</div>
+  <div class="foot-r">
+    <a href="mailto:18730429625@163.com">📧 联系我</a>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>
